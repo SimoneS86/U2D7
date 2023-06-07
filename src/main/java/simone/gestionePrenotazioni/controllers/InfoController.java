@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import simone.gestionePrenotazioni.exceptions.UnsupportedLanguageException;
+import simone.gestionePrenotazioni.exceptions.RequestException;
 import simone.gestionePrenotazioni.services.InfoPrenotazioniSrv;
 
 @RestController
@@ -17,17 +17,6 @@ public class InfoController {
 
 	@GetMapping("/{lang}")
 	public String getMsg(@PathVariable String lang) {
-		return infoPrenotazioniSrv.getInfoMSg(lang).orElseThrow(() -> new UnsupportedLanguageException(lang));
+		return infoPrenotazioniSrv.getInfoMSg(lang).orElseThrow(() -> new RequestException(lang));
 	}
-
-//	@GetMapping("")
-//	public String home(@RequestParam(defaultValue = "it") String lang) {
-//		if (lang.equals("it")) {
-//			return "Benvenuto, a seguire le regole per la prenotazione: ...";
-//		} else if (lang.equals("en")) {
-//			return "Welcome, here you are our reservation rules: ...";
-//		} else {
-//			throw new UnsupportedLanguageException(lang);
-//		}
-//	}
 }

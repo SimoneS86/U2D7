@@ -1,10 +1,27 @@
 package simone.gestionePrenotazioni.entities;
 
-import lombok.Data;
+import java.util.UUID;
 
-@Data
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Entity
 public class Citta {
-
-	private Long id;
+	@Id
+	@GeneratedValue
+	private UUID id;
 	private String nome;
+
+	public Citta(String nome) {
+		this.nome = nome;
+	}
 }

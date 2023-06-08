@@ -3,9 +3,9 @@ package simone.gestionePrenotazioni.exceptions;
 import lombok.Getter;
 
 @Getter
-public class RequestException extends RuntimeException {
+public class NotFoundException extends RuntimeException {
 
-	public RequestException(String message) {
+	public NotFoundException(String message) {
 		super(message);
 	}
 }
